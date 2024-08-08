@@ -12,7 +12,7 @@ from dotenv import load_dotenv
 from litellm import completion
 import jinja2
 
-class LLMSec:
+class CheckPrompt:
 
     SUS_WORDS=[
         "pretend",

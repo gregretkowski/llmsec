@@ -1,5 +1,5 @@
 import pytest
-from llmsec import LLMSec
+from llmsec import CheckPrompt
 
 def test_check_user_prompt():
     llmsec = LLMSec()
@@ -20,12 +20,12 @@ def test_check_user_prompt():
 
 
 def test_check_user_prompt():
-    llmsec = LLMSec(
+    cp = CheckPrompt(
         model='ollama/gemma2',
         purpose='AN AI Chatbot that provides coaching on the sport of surfing'
     )
     message = "Test message"
-    all_results = llmsec.check(message)
+    all_results = cp.check(message)
     assert isinstance(all_results, dict)
     print(all_results)
     result = all_results['harmful']['score']
