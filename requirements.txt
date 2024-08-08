@@ -1,2 +1,4 @@
-# Add your dependencies here
 pytest
+litellm
+jinja2
+httpretty
