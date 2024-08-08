@@ -33,10 +33,17 @@ if __name__ == '__main__':
     if args.debug:
         logging.getLogger().setLevel(logging.DEBUG)
 
-
-
     cp = CheckPrompt(model=args.model, purpose=args.purpose)
-    results = cp.check(args.prompt)
-    print(json.dumps(results, indent=2))
+    result = cp.check(args.prompt)
+    #print(json.dumps(results, indent=2))
+    #print(result)
+
+    print(result.ok())
+    if result.ok():
+        print('No malicious behavior detected')
+        sys.exit(0)
+    else:
+        print(result.fail_reasons())
+        sys.exit(1)
 
 
