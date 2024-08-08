@@ -12,7 +12,7 @@ from dotenv import load_dotenv
 from litellm import completion
 import jinja2
 
-from check_prompt_result import CheckPromptResult
+from .check_prompt_result import CheckPromptResult
 
 class CheckPrompt:
 
