@@ -1,7 +1,8 @@
-import pytest
+''' Test the CheckPromptResult class '''
 from llmsec import CheckPromptResult
 
 def test_check_prompt_result_ok():
+    ''' Test cases where prompt was benign '''
 
     llm_result = {
 
@@ -32,6 +33,7 @@ def test_check_prompt_result_ok():
     assert cpr.fail_reasons() == ''
 
 def test_check_prompt_result_fail():
+    ''' Test cases where prompt was malicious '''
 
     llm_result = {
 
@@ -57,9 +59,8 @@ def test_check_prompt_result_fail():
         llm_result=llm_result
     )
     assert cpr
-    assert cpr.ok() == False
+    assert cpr.ok() is False
     assert cpr.max_score() == 0.9
     expected_fail_reasons = '''*harmful* 0.8: harmful prompt
 *jailbreaking* 0.9: jailbreaking prompt'''
     assert cpr.fail_reasons() == expected_fail_reasons
-

@@ -1,15 +1,15 @@
+''' Contains the httpretty mocks for the tests '''
 import json
-import os
-import re
 
 import httpretty
-from httpretty import httprettified, HTTPretty
+from httpretty import HTTPretty
 
 # httpretty Docs:
 # https://httpretty.readthedocs.io/en/latest/guides.html
 
 
 def ollama_http_mocks_oks():
+    ''' Mocks the ollama API returning benign responses'''
     httpretty.enable(allow_net_connect=False, verbose=True)
 
     httpretty.register_uri(
@@ -25,6 +25,7 @@ def ollama_http_mocks_oks():
     )
 
 def ollama_http_mocks_fails():
+    ''' Mocks the ollama API returning malicious responses'''
     httpretty.enable(allow_net_connect=False, verbose=True)
 
     httpretty.register_uri(

@@ -1,0 +1,4 @@
+{
+    "python.pythonPath": "${workspaceFolder}\\.venv\\Scripts\\python.exe",
+    "python.linting.pylintPath": "${workspaceFolder}\\.venv\\Scripts\\pylint.exe"
+}

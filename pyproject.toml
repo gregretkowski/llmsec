@@ -12,6 +12,7 @@ authors = [
 urls = { Homepage = "https://github.com/gregretkowski/llmsec" }
 dependencies = [
     "litellm",
+    "python-dotenv",
     "jinja2"
 ]
 classifiers = [
@@ -28,3 +29,9 @@ classifiers = [
 
 [project.scripts]
 check-prompt = "llmsec:cli"
+[project.optional-dependencies]
+dev = [
+    "pylint",
+    "pytest",
+    "httpretty"
+]
