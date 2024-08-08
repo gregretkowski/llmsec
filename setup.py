@@ -8,7 +8,8 @@ setup(
     author_email='greg@rage.net',
     url='https://github.com/gregretkowski/llmsec',
     packages=find_packages(include=['llmsec']),
-    install_requires=['pytest'],
+    scripts=['bin/check-prompt'],
+    install_requires=['litellm','jinja2'],
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
