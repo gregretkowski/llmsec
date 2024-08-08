@@ -53,7 +53,7 @@ Remember to return only the JSON rating the prompt.
     DEFAULT_CHECKS=['harmful', 'subversive', 'prompt_leak', 'jailbreaking']
     DEFAULT_THRESHOLD=0.6
 
-    def __init__(self,model=None,purpose=None,threshold=DEFAULT_THRESHOLD,checks=DEFAULT_CHECKS,log=logging.getLogger(__name__)):
+    def __init__(self,model=None,purpose=None,threshold=DEFAULT_THRESHOLD,checks=DEFAULT_CHECKS,log=logging.getLogger('llmsec')):
 
         if purpose is None:
             raise ValueError("Purpose is not initialized. Please check the backend selection.")

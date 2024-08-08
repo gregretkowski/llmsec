@@ -3,7 +3,6 @@
 
 import argparse
 import logging
-import json
 import sys
 
 from dotenv import load_dotenv
@@ -15,35 +14,29 @@ This tool checks if the user provided prompt is malicious. Provide
 the 'purpose' of your LLM system, and provide the user 'prompt'.
 '''
 
-if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description=DESCRIPTION)
-    parser.add_argument('purpose', type=str, help='The purpose of your LLM system')
-    parser.add_argument('prompt', type=str, help='The user provided prompt')
-    parser.add_argument('--model', default='ollama/gemma2', type=str, help='model name in litellm format, ex ollama/mistral')
-    parser.add_argument('--debug', action='store_true', help='debug mode')
-    args = parser.parse_args()
+parser = argparse.ArgumentParser(description=DESCRIPTION)
+parser.add_argument('purpose', type=str, help='The purpose of your LLM system')
+parser.add_argument('prompt', type=str, help='The user provided prompt')
+parser.add_argument('--model', default='ollama/gemma2', type=str, help='model name in litellm format, ex ollama/mistral')
+parser.add_argument('--debug', action='store_true', help='debug mode')
+args = parser.parse_args()
 
-    load_dotenv()
+load_dotenv()
 
-    logging.basicConfig(
-        stream=sys.stderr,
-        level=logging.INFO,
-        format='%(asctime)s/%(levelname)s/%(filename)s:%(lineno)d: %(message)s'
-    )
-    if args.debug:
-        logging.getLogger().setLevel(logging.DEBUG)
+logging.basicConfig(
+    stream=sys.stderr,
+    #level=logging.INFO,
+    format='%(asctime)s/%(levelname)s/%(filename)s:%(lineno)d: %(message)s'
+)
+if args.debug:
+    logging.getLogger('llmsec').setLevel(logging.DEBUG)
 
-    cp = CheckPrompt(model=args.model, purpose=args.purpose)
-    result = cp.check(args.prompt)
-    #print(json.dumps(results, indent=2))
-    #print(result)
+cp = CheckPrompt(model=args.model, purpose=args.purpose)
+result = cp.check(args.prompt)
 
-    print(result.ok())
-    if result.ok():
-        print('No malicious behavior detected')
-        sys.exit(0)
-    else:
-        print(result.fail_reasons())
-        sys.exit(1)
-
-
+if result.ok():
+    print('No malicious behavior detected')
+    sys.exit(0)
+else:
+    print(result.fail_reasons())
+    sys.exit(1)
