@@ -24,7 +24,8 @@ nox.options.needs_version = ">= 2024.3.2"
 @nox.session
 def lint(session):
     ''' lint code'''
-    session.install("pylint")
+    session.install("-r", "requirements.txt")
+    #session.install("pylint")
     session.run(
         "pylint", "tests", "llmsec"
     )
@@ -46,7 +47,7 @@ def build_and_check_dists(session):
 @nox.session(python=["3.8", "3.9", "3.10", "3.11", "3.12"])
 def tests(session):
     ''' tests '''
-    session.install("pytest")
+    #session.install("pytest")
     session.install("-r", "requirements.txt")
     build_and_check_dists(session)
 
