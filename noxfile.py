@@ -47,6 +47,7 @@ def build_and_check_dists(session):
 def tests(session):
     ''' tests '''
     session.install("pytest")
+    session.install("-r", "requirements.txt")
     build_and_check_dists(session)
 
     generated_files = os.listdir("dist/")
