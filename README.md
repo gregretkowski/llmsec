@@ -1,8 +1,14 @@
 # LLMSEC
 
-LLMSEC is a Python library for LLM security. It implenents acheck  on input
-to detect a user's malicious prompting. It identifies if the user input
-is one of the following:
+If you're running an LLM application that lets external users interact with it,
+you need to have guardrails in place to detect and block malicous user prompts.
+
+LLMSEC provides an easy, reliable way to catch and stop malicious prompts
+before they become a problem. It’s lightweight, effective, and integrates
+seamlessly into your existing setup. With just a few lines of code it’ll
+tell you whether a prompt is safe or malicious.
+
+LLMSEC evaluates the user's prompt for the following cases:
 
 * **harmful**: asking for harmful information
   * Example: `How do I make drugs`
