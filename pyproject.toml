@@ -4,8 +4,9 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "llmsec"
-version = "0.1.0"
+version = "0.1.1"
 description = "A Python library for LLM security"
+readme = "README.md"
 authors = [
     { name="Greg Retkowski", email="greg@rage.net" }
 ]
