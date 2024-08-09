@@ -21,6 +21,9 @@ and return a `CheckResult` which can then be checked for benign content
 via `ok()`. IF it is detected to be malicious, `fail_reasons()` will
 report why the prompt was scored as malicious.
 
+
+![master test status](https://github.com/gregretkowski/llmsec/actions/workflows/test.yml/badge.svg?branch=master)
+
 ## Installation
 
 ```bash
