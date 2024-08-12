@@ -39,7 +39,7 @@ safety.
 * You can use a model trained to evaluate the safety of prompts, such as
 [Llamaguard](https://ai.meta.com/research/publications/llama-guard-llm-based-input-output-safeguard-for-human-ai-conversations/).
 The benefit is that it is doing it in a single prompt so it may be faster
-than llmsec; some drawbacks are that it only provides a binary
+than LLMSEC; some drawbacks are that it only provides a binary
 `safe/unsafe` so thresholds cannot be tuned.
 * You can apply Bayes methods to prompts similar to the application of Bayes
 to spam filtering. It would also be faster than LLMSEC, however you would
