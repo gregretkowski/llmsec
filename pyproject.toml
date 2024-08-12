@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "llmsec"
-version = "0.1.3"
+version = "0.1.4"
 description = "A Python library for LLM security"
 readme = "README.md"
 authors = [
